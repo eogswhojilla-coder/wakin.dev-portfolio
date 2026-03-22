@@ -1,4 +1,3 @@
-
 "use client"         
 import React, { useEffect, useState } from "react";
 
@@ -25,25 +24,26 @@ export default function AboutSection() {
     ];
 
     return (
-        <section className="relative w-full min-h-screen bg-[#09090b] overflow-hidden flex items-center px-4 md:px-8 lg:px-12 py-24 selection:bg-purple-500/30">
+        <section className="relative w-full min-h-screen bg-[#09090b] overflow-hidden flex items-center px-4 sm:px-6 lg:px-42 py-24 selection:bg-purple-500/30">
             {/* Background Ambient Glows */}
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-600/15 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-purple-600/15 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-blue-600/10 rounded-full blur-[140px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
-            <div className="w-full flex items-center justify-between gap-12">
-                {/* Image Column - Left Side */}
+            <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-12">
+
+                {/* Image Column */}
                 <div
-                    className={`flex-shrink-0 transition-all duration-1000 ease-out transform ${
+                    className={`flex-shrink-0 relative w-full flex justify-center lg:justify-start lg:w-auto transition-all duration-1000 ease-out transform ${
                         isVisible
-                            ? "opacity-100 translate-x-0"
-                            : "opacity-0 -translate-x-12"
+                            ? "opacity-100 translate-y-0 lg:translate-x-0"
+                            : "opacity-0 translate-y-8 lg:-translate-x-12"
                     }`}
-                    style={{ marginLeft: "5%" }}
+                    style={{ marginLeft: "0" }}
                 >
                     {/* Gradient Border Effect */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-[2rem] blur opacity-30 hover:opacity-60 transition duration-500"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-[2rem] blur opacity-30 hover:opacity-60 transition duration-500" />
 
-                    <div className="relative w-72 h-72 md:w-[380px] md:h-[480px] lg:w-[420px] lg:h-[520px] rounded-[1.5rem] overflow-hidden bg-neutral-900 border border-white/10 shadow-2xl group">
+                    <div className="relative w-64 h-72 sm:w-72 sm:h-80 md:w-[340px] md:h-[420px] lg:w-[380px] lg:h-[480px] xl:w-[420px] xl:h-[520px] rounded-[1.5rem] overflow-hidden bg-neutral-900 border border-white/10 shadow-2xl group">
                         <img
                             src="images/me.png"
                             alt="Wacky D. Hojilla"
@@ -54,11 +54,11 @@ export default function AboutSection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent" />
 
                         {/* Floating Badge */}
-                        <div className="absolute bottom-6 left-6 right-6">
+                        <div className="absolute bottom-5 left-5 right-5">
                             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-neutral-950/60 backdrop-blur-md border border-white/10 w-fit shadow-lg">
                                 <span className="relative flex h-2.5 w-2.5">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
                                 </span>
                                 <span className="text-sm font-medium text-neutral-200">
                                     Available for work
@@ -68,31 +68,30 @@ export default function AboutSection() {
                     </div>
                 </div>
 
-                {/* Content Column - Right Side */}
+                {/* Content Column */}
                 <div
-                    className={`flex-1 transition-all duration-1000 ease-out delay-300 transform ${
+                    className={`flex-1 w-full lg:max-w-[55%] transition-all duration-1000 ease-out delay-300 transform ${
                         isVisible
-                            ? "opacity-100 translate-x-0"
-                            : "opacity-0 translate-x-12"
+                            ? "opacity-100 translate-y-0 lg:translate-x-0"
+                            : "opacity-0 translate-y-8 lg:translate-x-12"
                     }`}
-                    style={{ marginRight: "5%", maxWidth: "55%" }}
                 >
-                    <div className="flex flex-col gap-10">
+                    <div className="flex flex-col gap-8 lg:gap-10">
                         {/* Header */}
-                        <div className="space-y-5">
+                        <div className="space-y-4 lg:space-y-5 text-center lg:text-left">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-medium uppercase tracking-wider">
-                                <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
                                 About Me
                             </div>
 
-                            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
+                            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-tight">
                                 Hi, I'm{" "}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-400">
                                     Wacky D. Hojilla
                                 </span>
                             </h2>
 
-                            <p className="text-xl text-neutral-400 leading-relaxed max-w-2xl">
+                            <p className="text-base sm:text-lg md:text-xl text-neutral-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                                 A passionate full-stack developer who loves
                                 building clean, performant web experiences. I
                                 specialize in React, Node.js, and turning ideas
@@ -102,10 +101,10 @@ export default function AboutSection() {
 
                         {/* Skills */}
                         <div className="space-y-4">
-                            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider">
+                            <h3 className="text-sm font-semibold text-neutral-500 uppercase tracking-wider text-center lg:text-left">
                                 Tech Stack
                             </h3>
-                            <div className="flex flex-wrap gap-3">
+                            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                                 {skills.map((skill) => (
                                     <span
                                         key={skill}
@@ -118,13 +117,13 @@ export default function AboutSection() {
                         </div>
 
                         {/* Stats Grid */}
-                        <div className="grid grid-cols-3 gap-8 py-6 border-y border-white/5">
+                        <div className="grid grid-cols-3 gap-4 sm:gap-8 py-6 border-y border-white/5">
                             {stats.map((stat) => (
-                                <div key={stat.label} className="space-y-1">
-                                    <h4 className="text-4xl md:text-5xl font-bold text-white">
+                                <div key={stat.label} className="space-y-1 text-center lg:text-left">
+                                    <h4 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
                                         {stat.value}
                                     </h4>
-                                    <p className="text-sm text-neutral-500 font-medium">
+                                    <p className="text-xs sm:text-sm text-neutral-500 font-medium">
                                         {stat.label}
                                     </p>
                                 </div>
